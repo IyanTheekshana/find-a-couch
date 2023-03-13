@@ -5,16 +5,17 @@ import CoachDetail from "./pages/coaches/CoachDetail";
 import CoachRegistration from "./pages/coaches/CoachRegistration";
 import ContactCoach from "./pages/requests/ContactCoach";
 import RequestRecived from "./pages/requests/RequestsRecived";
+import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
-  history: createWebHistory,
+  history: createWebHistory(),
   routes: [
     {
       path: "",
       redirect: "/coaches",
     },
     {
-      path: "coaches",
+      path: "/coaches",
       component: CoachesList,
     },
     {
@@ -37,7 +38,7 @@ const router = createRouter({
     },
     {
       path: "/:notFound(.*)",
-      component: null,
+      component: NotFound,
     },
   ],
 });

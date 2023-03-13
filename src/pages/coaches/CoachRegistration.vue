@@ -1,11 +1,3 @@
 <template>
-  <h1>Coache Registration</h1>
+  <h1>Coaches Registration</h1>
 </template>
-
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script>
