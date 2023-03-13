@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+import CoachesList from "./pages/coaches/CoachesList";
+import CoachDetail from "./pages/coaches/CoachDetail";
+import CoachRegistration from "./pages/coaches/CoachRegistration";
+import ContactCoach from "./pages/requests/ContactCoach";
+import RequestRecived from "./pages/requests/RequestsRecived";
+
 const router = createRouter({
   history: createWebHistory,
   routes: [
@@ -9,25 +15,25 @@ const router = createRouter({
     },
     {
       path: "coaches",
-      component: null,
+      component: CoachesList,
     },
     {
       path: "/coaches/:id",
-      component: null,
+      component: CoachDetail,
       children: [
         {
           path: "contact",
-          component: null,
+          component: ContactCoach,
         },
       ],
     },
     {
       path: "/register",
-      component: null,
+      component: CoachRegistration,
     },
     {
       path: "/requests",
-      component: null,
+      component: RequestRecived,
     },
     {
       path: "/:notFound(.*)",
@@ -35,3 +41,5 @@ const router = createRouter({
     },
   ],
 });
+
+export default router;
