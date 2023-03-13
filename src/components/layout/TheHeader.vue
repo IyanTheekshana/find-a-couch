@@ -12,23 +12,29 @@
 
 <style scoped>
 header {
+  margin: auto;
   width: 100%;
   height: 5.5rem;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  font-family: "Jost", sans-serif;
 }
 
 header a {
   text-decoration: none;
-  color: #3f7856;
+
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: none;
-  font-family: "Roboto Slab", serif;
   transition: all 0.3s;
   border-radius: 0.5rem;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(0deg, #3f7856, #7ec384);
+  color: transparent;
 }
 
 a:active,
@@ -37,6 +43,7 @@ a.router-link-active {
   color: white;
   background: linear-gradient(140deg, #3f7856, #7ec384);
   border: none;
+  box-shadow: #7ec384 3px 3px 6px 0px inset, #3f7856 -3px -3px 6px 1px inset;
 }
 
 h1 {
@@ -44,7 +51,10 @@ h1 {
 }
 
 h1 a {
-  color: #3f7856;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(0deg, #3f7856, #7ec384);
+  color: transparent;
   margin: 0;
 }
 
@@ -54,6 +64,7 @@ h1 a.router-link-active {
   border-color: transparent;
   background: transparent;
   color: #7ec384;
+  box-shadow: none;
 }
 
 header nav {
