@@ -1,6 +1,8 @@
 <template>
   <the-header></the-header>
-  <router-view></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
@@ -39,10 +41,19 @@ h5,
 h6 {
   font-family: "Roboto Slab", serif;
   text-transform: uppercase;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(0deg, #19335a, #697a98);
+  color: transparent;
 }
 
 .card {
   background: linear-gradient(140deg, #02889b, #06c2ae);
   color: #fff;
+}
+
+main {
+  max-width: 1400px;
+  padding: 2rem;
 }
 </style>
