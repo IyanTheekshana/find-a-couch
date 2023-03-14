@@ -6,7 +6,7 @@
       </div>
       <div>
         <base-button mode="outline">Refresh</base-button>
-        <base-button mode="flat" link to="/register"
+        <base-button v-if="!isCoach" mode="flat" link to="/register"
           >Register as coach</base-button
         >
       </div>
@@ -60,6 +60,9 @@ export default {
     },
     hasCoaches() {
       return this.$store.getters["coaches/hasCoaches"];
+    },
+    isCoach() {
+      return this.$store.getters["coaches/isCoach"];
     },
   },
   methods: {
