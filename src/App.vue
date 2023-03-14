@@ -50,14 +50,27 @@ h6 {
   letter-spacing: 0.1rem;
 }
 
-.card {
-  background: linear-gradient(140deg, #02889b, #06c2ae);
-  color: #fff;
+h1 {
+  font-size: 2rem;
 }
 
+/* .card {
+  background: linear-gradient(140deg, #02889b, #06c2ae);
+  color: #fff;
+} */
+
 main {
-  max-width: 1400px;
+  max-width: 1000px;
   padding: 2rem;
   margin: 0 auto;
+}
+
+.container {
+  margin: auto;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 </style>

@@ -1,10 +1,16 @@
 <template>
   <header>
     <nav>
-      <h1><router-link to="/">Find a coach</router-link></h1>
+      <h2>
+        <base-button link to="/">Find a coach</base-button>
+      </h2>
       <ul>
-        <li><router-link to="/coaches">All Coaches</router-link></li>
-        <li><router-link to="/requests">Requests</router-link></li>
+        <li>
+          <base-button mode="flat" link to="/coaches">All Coaches</base-button>
+        </li>
+        <li>
+          <base-button mode="flat" link to="/requests">Requests</base-button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -23,7 +29,7 @@ header {
   font-family: "Jost", sans-serif;
 }
 
-header a {
+/* header a {
   text-decoration: none;
 
   display: inline-block;
@@ -44,13 +50,13 @@ a.router-link-active {
   background: linear-gradient(140deg, #3f7856, #7ec384);
   border: none;
   box-shadow: #7ec384 3px 3px 6px 0px inset, #3f7856 -3px -3px 6px 1px inset;
-}
+} */
 
-h1 {
+h2 {
   margin: 0;
 }
 
-h1 a {
+h2 a {
   -webkit-background-clip: text;
   background-clip: text;
   background-image: linear-gradient(0deg, #3f7856, #7ec384);
@@ -58,9 +64,9 @@ h1 a {
   margin: 0;
 }
 
-h1 a:hover,
-h1 a:active,
-h1 a.router-link-active {
+h2 a:hover,
+h2 a:active,
+h2 a.router-link-active {
   border-color: transparent;
   background: transparent;
   color: #7ec384;
