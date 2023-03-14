@@ -68,9 +68,4 @@ main {
 .container {
   margin: auto;
 }
-
-a,
-button {
-  cursor: pointer;
-}
 </style>

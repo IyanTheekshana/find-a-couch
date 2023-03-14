@@ -5,7 +5,12 @@
 
     <div class="actions">
       <div>
-        <span v-for="area in areas" :key="area">{{ area }}</span>
+        <base-badge
+          v-for="area in areas"
+          :key="area"
+          :type="area"
+          :title="area"
+        ></base-badge>
       </div>
       <div>
         <base-button mode="outline" link :to="coachContactLink"
@@ -40,18 +45,6 @@ export default {
 </script>
 
 <style scoped>
-span {
-  background: linear-gradient(to top, #06623b, #649d66);
-  padding: 5px;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-span:not(:last-child) {
-  margin-right: 5px;
-}
-
 li {
   margin: 1rem 0;
   border: none;

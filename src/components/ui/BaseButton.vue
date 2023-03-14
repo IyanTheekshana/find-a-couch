@@ -30,10 +30,14 @@ export default {
 </script>
 
 <style scoped>
+a,
+button {
+  text-decoration: none;
+}
 .outline {
   margin-right: 0.5rem;
   text-decoration: none;
-
+  cursor: pointer !important;
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: none;
