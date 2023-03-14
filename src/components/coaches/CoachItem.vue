@@ -82,29 +82,4 @@ div {
   flex-wrap: wrap;
   gap: 3px;
 }
-
-/* a {
-  text-decoration: none;
-
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  transition: all 0.3s;
-  border-radius: 0.5rem;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: linear-gradient(0deg, #3f7856, #7ec384);
-  color: transparent;
-  border: 1px solid #7ec384;
-  font-weight: bold;
-}
-
-a:active,
-a:hover,
-a.router-link-active {
-  color: white;
-  background: linear-gradient(140deg, #3f7856, #7ec384);
-  border: none;
-  box-shadow: #7ec384 3px 3px 6px 0px inset, #3f7856 -3px -3px 6px 1px inset;
-} */
 </style>
