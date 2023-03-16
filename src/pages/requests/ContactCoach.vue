@@ -45,8 +45,8 @@ export default {
         email: this.email,
         message: this.message,
       };
-      console.log(formData);
-      this.$store.dispatch("requests/contactCouch", formData);
+      // console.log(formData);
+      this.$store.dispatch("requests/contactCoach", formData);
       this.$router.replace("/");
     },
   },

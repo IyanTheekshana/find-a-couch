@@ -11,10 +11,10 @@ export default {
     },
   },
   actions: {
-    contactCouch(context, payload) {
+    contactCoach(context, payload) {
       const newRequest = {
         id: new Date().toISOString(),
-        coachID: payload.coachID,
+        coachId: payload.coachId,
         userEmail: payload.email,
         message: payload.message,
       };
@@ -22,11 +22,13 @@ export default {
     },
   },
   getters: {
-    requests(state) {
-      return state.requests;
+    requests(state, _, _2, rootGetters) {
+      const coachId = rootGetters.userId;
+      console.log(coachId);
+      return state.requests.filter((req) => req.coachId === coachId);
     },
-    hasRequests(state) {
-      return state.requests && state.requests.length > 0;
+    hasRequests(_, getters) {
+      return getters.requests && getters.requests.length > 0;
     },
   },
 };
