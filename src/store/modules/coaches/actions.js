@@ -1,8 +1,9 @@
 export default {
-  registerCoach(context, data) {
+  async registerCoach(context, data) {
+    const userId = context.rootGetters.userId;
     const coachData = {
       // id: "c" + Math.ceil(Math.random() * (199 - 1) + 1),
-      id: context.rootGetters.userId,
+      // id: context.rootGetters.userId,
       firstName: data.first,
       lastName: data.last,
       areas: data.areas,
@@ -10,6 +11,20 @@ export default {
       hourlyRate: data.rate,
     };
 
-    context.commit("registerCoach", coachData);
+    const response = await fetch(
+      `https://vue-http-demo-4c5ef-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(coachData),
+      }
+    );
+
+    // const responseData = await response.json();
+
+    if (!response.ok) {
+      //Error
+    }
+
+    context.commit("registerCoach", { ...coachData, id: userId });
   },
 };
