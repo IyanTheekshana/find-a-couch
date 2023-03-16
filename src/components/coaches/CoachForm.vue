@@ -154,7 +154,7 @@ export default {
         rate: this.rate.val,
         areas: this.areas.val,
       };
-      console.log(formData);
+      // console.log(formData);
       this.$emit("save-data", formData);
     },
   },
@@ -198,9 +198,10 @@ textarea {
 
 input:focus,
 textarea:focus {
-  background-color: #e2f8e4;
+  background-color: #f3fff4;
   outline: none;
-  border-color: #7ec384;
+  border-color: #f3fff4;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 input[type="checkbox"] {
