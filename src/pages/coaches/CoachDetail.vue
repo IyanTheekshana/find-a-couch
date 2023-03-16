@@ -14,7 +14,7 @@
     <p>{{ description }}</p>
   </base-card>
 
-  <base-card>
+  <base-card mode="card-two">
     <header>
       <h4>Interested? Reach out now!</h4>
       <base-button mode="outline" link :to="contactLink">Contact</base-button>

@@ -6,13 +6,13 @@
       </div>
       <div>
         <base-button mode="outline">Refresh</base-button>
-        <base-button v-if="!isCoach" mode="flat" link to="/register"
+        <base-button v-if="isCoach" mode="flat" link to="/register"
           >Register as coach</base-button
         >
       </div>
     </div>
     <div>
-      <ul v-if="hasCoaches">
+      <div v-if="hasCoaches">
         <coach-item
           v-for="coach in filteredCoaches"
           :key="coach.id"
@@ -22,7 +22,7 @@
           :rate="coach.hourlyRate"
           :areas="coach.areas"
         ></coach-item>
-      </ul>
+      </div>
       <h3 v-else>No coaches found</h3>
     </div>
   </section>
@@ -92,7 +92,7 @@ section {
   justify-content: space-between;
   align-items: center;
   /* border-bottom: 1px solid black; */
-  padding: 0 0 0 2.5rem;
+
   flex-wrap: wrap;
 }
 </style>

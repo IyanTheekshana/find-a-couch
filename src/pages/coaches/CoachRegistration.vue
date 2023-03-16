@@ -1,5 +1,5 @@
 <template>
-  <base-card>
+  <base-card mode="card-two">
     <h2>Register as a coach now</h2>
   </base-card>
   <base-card>

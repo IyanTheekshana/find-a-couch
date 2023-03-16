@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <div class="card">
     <h3>{{ fullName }}</h3>
     <h4>&euro;{{ rate }}</h4>
 
@@ -21,7 +21,7 @@
         >
       </div>
     </div>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-li {
+.card {
   margin: 1rem 0;
   border: none;
   border-radius: 12px;
