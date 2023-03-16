@@ -6,13 +6,18 @@
       </div>
       <div>
         <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
-        <base-button v-if="isCoach" mode="flat" link to="/register"
+        <base-button
+          v-if="isCoach && !isLoading"
+          mode="flat"
+          link
+          to="/register"
           >Register as coach</base-button
         >
       </div>
     </div>
     <div>
-      <div v-if="hasCoaches">
+      <base-spinner v-if="isLoading"></base-spinner>
+      <div v-else-if="hasCoaches">
         <coach-item
           v-for="coach in filteredCoaches"
           :key="coach.id"
@@ -35,6 +40,7 @@ export default {
   components: { CoachItem, CoachFilter },
   data() {
     return {
+      isLoading: false,
       activeFilters: {
         frontend: true,
         backend: true,
@@ -59,7 +65,7 @@ export default {
       });
     },
     hasCoaches() {
-      return this.$store.getters["coaches/hasCoaches"];
+      return !this.isLoading && this.$store.getters["coaches/hasCoaches"];
     },
     isCoach() {
       return this.$store.getters["coaches/isCoach"];
@@ -70,8 +76,10 @@ export default {
       this.activeFilters = updatedFilters;
       console.log(updatedFilters);
     },
-    loadCoaches() {
-      this.$store.dispatch("coaches/loadCoaches");
+    async loadCoaches() {
+      this.isLoading = true;
+      await this.$store.dispatch("coaches/loadCoaches");
+      this.isLoading = false;
     },
   },
   created() {
