@@ -5,7 +5,7 @@
         <coach-filter @change-filter="setFilters"></coach-filter>
       </div>
       <div>
-        <base-button mode="outline">Refresh</base-button>
+        <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
         <base-button v-if="isCoach" mode="flat" link to="/register"
           >Register as coach</base-button
         >
@@ -70,6 +70,12 @@ export default {
       this.activeFilters = updatedFilters;
       console.log(updatedFilters);
     },
+    loadCoaches() {
+      this.$store.dispatch("coaches/loadCoaches");
+    },
+  },
+  created() {
+    this.loadCoaches();
   },
 };
 </script>
