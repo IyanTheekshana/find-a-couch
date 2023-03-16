@@ -2,8 +2,6 @@ export default {
   async registerCoach(context, data) {
     const userId = context.rootGetters.userId;
     const coachData = {
-      // id: "c" + Math.ceil(Math.random() * (199 - 1) + 1),
-      // id: context.rootGetters.userId,
       firstName: data.first,
       lastName: data.last,
       areas: data.areas,
@@ -35,6 +33,9 @@ export default {
     const responeData = await response.json();
     if (!response.ok) {
       //Error
+
+      const error = new Error(responeData.message || "Faild to fetch");
+      throw error;
     }
 
     const coaches = [];

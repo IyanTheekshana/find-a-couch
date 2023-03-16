@@ -1,4 +1,7 @@
 <template>
+  <base-dialog :show="!!errorMsg" title="An error occured" @close="handleError">
+    <p>{{ errorMsg }}</p>
+  </base-dialog>
   <section>
     <div class="controls">
       <div>
@@ -7,7 +10,7 @@
       <div>
         <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
         <base-button
-          v-if="isCoach && !isLoading"
+          v-if="!isCoach && !isLoading"
           mode="flat"
           link
           to="/register"
@@ -40,6 +43,7 @@ export default {
   components: { CoachItem, CoachFilter },
   data() {
     return {
+      errorMsg: "",
       isLoading: false,
       activeFilters: {
         frontend: true,
@@ -71,6 +75,9 @@ export default {
       return this.$store.getters["coaches/isCoach"];
     },
   },
+  created() {
+    this.loadCoaches();
+  },
   methods: {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
@@ -78,12 +85,16 @@ export default {
     },
     async loadCoaches() {
       this.isLoading = true;
-      await this.$store.dispatch("coaches/loadCoaches");
+      try {
+        await this.$store.dispatch("coaches/loadCoaches");
+      } catch (err) {
+        this.errorMsg = err.message || "Something went wrong";
+      }
       this.isLoading = false;
     },
-  },
-  created() {
-    this.loadCoaches();
+    handleError() {
+      this.errorMsg = null;
+    },
   },
 };
 </script>
