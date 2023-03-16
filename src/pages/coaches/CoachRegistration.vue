@@ -1,10 +1,12 @@
 <template>
-  <base-card mode="card-two">
-    <h2>Register as a coach now</h2>
-  </base-card>
-  <base-card>
-    <coach-form @save-data="saveData"></coach-form>
-  </base-card>
+  <div>
+    <base-card mode="card-two">
+      <h2>Register as a coach now</h2>
+    </base-card>
+    <base-card>
+      <coach-form @save-data="saveData"></coach-form>
+    </base-card>
+  </div>
 </template>
 
 <script>

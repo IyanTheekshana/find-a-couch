@@ -1,41 +1,47 @@
 <template>
-  <base-dialog :show="!!errorMsg" title="An error occured" @close="handleError">
-    <p>{{ errorMsg }}</p>
-  </base-dialog>
-  <section>
-    <div class="controls">
-      <div>
-        <coach-filter @change-filter="setFilters"></coach-filter>
+  <div>
+    <base-dialog
+      :show="!!errorMsg"
+      title="An error occured"
+      @close="handleError"
+    >
+      <p>{{ errorMsg }}</p>
+    </base-dialog>
+    <section>
+      <div class="controls">
+        <div>
+          <coach-filter @change-filter="setFilters"></coach-filter>
+        </div>
+        <div>
+          <base-button mode="outline" @click="loadCoaches(true)"
+            >Refresh</base-button
+          >
+          <base-button
+            v-if="!isCoach && !isLoading"
+            mode="flat"
+            link
+            to="/register"
+            >Register as coach</base-button
+          >
+        </div>
       </div>
       <div>
-        <base-button mode="outline" @click="loadCoaches(true)"
-          >Refresh</base-button
-        >
-        <base-button
-          v-if="!isCoach && !isLoading"
-          mode="flat"
-          link
-          to="/register"
-          >Register as coach</base-button
-        >
+        <base-spinner v-if="isLoading"></base-spinner>
+        <div v-else-if="hasCoaches">
+          <coach-item
+            v-for="coach in filteredCoaches"
+            :key="coach.id"
+            :id="coach.id"
+            :first-name="coach.firstName"
+            :last-name="coach.lastName"
+            :rate="coach.hourlyRate"
+            :areas="coach.areas"
+          ></coach-item>
+        </div>
+        <h3 v-else>No coaches found</h3>
       </div>
-    </div>
-    <div>
-      <base-spinner v-if="isLoading"></base-spinner>
-      <div v-else-if="hasCoaches">
-        <coach-item
-          v-for="coach in filteredCoaches"
-          :key="coach.id"
-          :id="coach.id"
-          :first-name="coach.firstName"
-          :last-name="coach.lastName"
-          :rate="coach.hourlyRate"
-          :areas="coach.areas"
-        ></coach-item>
-      </div>
-      <h3 v-else>No coaches found</h3>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
