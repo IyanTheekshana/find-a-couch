@@ -1,3 +1,4 @@
+// import { defineAsyncComponent } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 import CoachesList from "./pages/coaches/CoachesList";
@@ -8,6 +9,24 @@ import RequestRecived from "./pages/requests/RequestsRecived";
 import UserAuth from "./pages/auth/UserAuth.vue";
 import NotFound from "./pages/NotFound.vue";
 import store from "./store/index";
+
+// const CoachDetail = defineAsyncComponent(() =>
+//   import("./pages/coaches/CoachDetail")
+// );
+// const CoachRegistration = defineAsyncComponent(() =>
+//   import("./pages/coaches/CoachRegistration")
+// );
+// const ContactCoach = defineAsyncComponent(() =>
+//   import("./pages/requests/ContactCoach")
+// );
+// const RequestRecived = defineAsyncComponent(() =>
+//   import("./pages/requests/RequestsRecived")
+// );
+// const NotFound = defineAsyncComponent(() => import("./pages/NotFound"));
+
+// const UserAuth = defineAsyncComponent(() =>
+//   import("./pages/auth/UserAuth.vue")
+// );
 
 const router = createRouter({
   history: createWebHistory(),
