@@ -8,13 +8,35 @@
         <li>
           <base-button mode="flat" link to="/coaches">All Coaches</base-button>
         </li>
-        <li>
+        <li v-if="isLoggedIn">
           <base-button mode="flat" link to="/requests">Requests</base-button>
+        </li>
+        <li v-if="!isLoggedIn">
+          <base-button mode="flat" link to="/auth">Login</base-button>
+        </li>
+        <li v-if="isLoggedIn">
+          <base-button mode="outline" @click="logout">Logout</base-button>
         </li>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.replace("/coaches");
+    },
+  },
+};
+</script>
 
 <style scoped>
 header {
@@ -28,29 +50,6 @@ header {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   font-family: "Jost", sans-serif;
 }
-
-/* header a {
-  text-decoration: none;
-
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  transition: all 0.3s;
-  border-radius: 0.5rem;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: linear-gradient(0deg, #3f7856, #7ec384);
-  color: transparent;
-}
-
-a:active,
-a:hover,
-a.router-link-active {
-  color: white;
-  background: linear-gradient(140deg, #3f7856, #7ec384);
-  border: none;
-  box-shadow: #7ec384 3px 3px 6px 0px inset, #3f7856 -3px -3px 6px 1px inset;
-} */
 
 h2 {
   margin: 0;

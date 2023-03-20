@@ -17,7 +17,14 @@
             >Refresh</base-button
           >
           <base-button
-            v-if="!isCoach && !isLoading"
+            link
+            to="/auth?redirect=register"
+            mode="outline"
+            v-if="!isLoggedIn"
+            >Login to register as a Coach</base-button
+          >
+          <base-button
+            v-if="!isCoach && !isLoading && isLoggedIn"
             mode="flat"
             link
             to="/register"
@@ -61,6 +68,9 @@ export default {
     };
   },
   computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
     filteredCoaches() {
       const coaches = this.$store.getters["coaches/coaches"];
       return coaches.filter((coach) => {

@@ -84,13 +84,17 @@ export default {
       try {
         if (this.mode === "login") {
           await this.$store.dispatch("login", actionPayload);
+          this.$router.replace("/");
         } else {
           await this.$store.dispatch("signup", actionPayload);
         }
+        const redirectUrl = "/" + (this.$route.query.redirect || "coaches");
+        this.$router.replace(redirectUrl);
       } catch (err) {
         console.error(err);
         this.errorMsg = err.message || "Failed to authenticate, try again";
       }
+
       this.isLoading = false;
     },
     handleError() {
